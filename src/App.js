@@ -1,10 +1,20 @@
-import './App.css';
-import Signup from './components/Signup/Signup'
+import { Route, Switch } from "react-router-dom";
+import Signin from './components/Signup/Signin';
+
 function App() {
   return (
-    <div className="App">
-     <Signup/>
-    </div>
+    <>
+           <main>
+        <Switch>
+          <Route path="/" exact>
+            DASHBOARD
+          </Route>
+          <Route exact path="/signin">
+            <Signin />
+          </Route>
+        </Switch>
+      </main>
+    </>
   );
 }
 
