@@ -1,0 +1,16 @@
+
+.gameContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MuiBox-root {
+    
+    margin-bottom: 27px !important;
+}
+  
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    width: 425px !important;
+}

@@ -1,0 +1,55 @@
+.dashboard_container{
+    /* margin-left: 200px; */
+    width: 80%;
+    margin: auto;
+}
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    /* border-bottom: 2px solid red; */
+    /* padding: 10px; */
+}
+
+.sub_box{
+    width: 300px;
+    height: 120px;
+    background: rgb(13,213,103);
+    background: linear-gradient(90deg, rgba(13,213,103,1) 20%, rgba(118,219,189,0.7679446778711485) 52%, rgba(0,212,255,1) 100%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    border-radius: 10px;
+ 
+}
+.match{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.sub_box div{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.sub_box:hover{
+    background: rgb(16,165,222);
+background: linear-gradient(90deg, rgba(16,165,222,1) 18%, rgba(191,219,118,0.7287289915966386) 65%, rgba(136,0,255,1) 100%);
+cursor: pointer;
+}
+
+.today_match_user_table{
+    /* width: 80%;
+    margin: auto; */
+    margin-top: 40px;
+    /* box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset; */
+}
+
+.graph  {
+    height: 308px;
+    width: 426px;
+}

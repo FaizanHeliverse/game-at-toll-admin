@@ -1,0 +1,111 @@
+.sidebar_container{
+    background-color: black;
+    width:30px;
+    position: fixed;
+}
+
+.navigation{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 20px;
+    /* width: 300px; */
+    border-radius: 10px;
+    border-left: 5px solid #4d5bf9;
+    background: #4d5bf9;
+    transition: 0.5s;
+    width: 70px;
+    overflow: hidden;
+}
+
+.navigation.naactive{
+    width: 300px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 23px;
+
+    left: 0;
+    width:100%;
+    padding-left: 5px;
+    padding-top:40px;
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align: center;
+}
+
+.navigation ul li div{
+    position: relative;   
+    display:block ;
+    width: 100%;
+    display: flex;
+    /* color: #fff; */
+
+ 
+}
+/* for active button */
+.navigation ul li.active  {
+background: #fff;
+
+
+ 
+}
+.navigation ul li div.active  {
+    background: #fff;
+    color: black;
+     
+    }
+    
+
+.list:hover{
+    background-color: greenyellow;
+    color: black;
+    margin-top: 2px;
+}
+
+.navigation ul li div:hover{
+    color: black;
+}
+
+.arrow{
+    position: absolute;
+    top: 40px;
+   right: -10px;
+   font-size: 30px;
+  color: aquamarine;
+   border-radius: 100%;
+   cursor: pointer;
+   z-index: 100;
+
+}
+
+
+
+.navigation ul li div .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li div .icon ion-icon{
+    font-size: 1.5rem;
+}
+
+.navigation ul li div .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+  line-height: 60px;
+  white-space: normal;
+}

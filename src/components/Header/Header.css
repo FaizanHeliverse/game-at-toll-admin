@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: whitesmoke;
+    border-bottom: 2px solid whitesmoke;
+    box-shadow: whitesmoke;
+}
+
+/* .header div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+} */
+
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

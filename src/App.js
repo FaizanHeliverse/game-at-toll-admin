@@ -1,13 +1,17 @@
 import { Route, Switch } from "react-router-dom";
-import Signin from './components/Signup/Signin';
-
+import Signin from './components/Signin/Signin';
+// import Sidebar from './components/Sidebar/Sidebar'
+// import Header from './components/Header/Header'
+import Admin from './components/Admin/Admin'
 function App() {
   return (
     <>
            <main>
         <Switch>
           <Route path="/" exact>
-            DASHBOARD
+           {/* <Sidebar/>
+           <Header/> */}
+           <Admin/>
           </Route>
           <Route exact path="/signin">
             <Signin />

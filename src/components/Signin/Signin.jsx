@@ -59,10 +59,7 @@ function Signin() {
           <div className="field">
             <label>Email*</label>
             <input placeholder="Email" type="email" onChange={(e)=>validateEmail(e) } style={emailError?{border:"2px solid red"}:{border:"2px solid whiteSmoke"}}></input><br />
-        {/* <span style={{
-          fontWeight: 'bold',
-          color: 'red',
-        }}>{emailError}</span> */}
+       
           </div>
           <div className="field">
             <label>Password*</label>
@@ -79,7 +76,7 @@ function Signin() {
             {showPassword ?<VisibilityIcon sx={{margiRight:2}} onClick={()=>{setShowPassword(!showPassword);setText("password")}}/>:<VisibilityOffIcon sx={{margiRight:2}} onClick={()=>{setShowPassword(!showPassword);setText("text")}}/> }
          </div>
          
-            {/* <VisibilityIcon/> */}
+         
           </div>
           <div className="btn">
             <button onClick={signin}> Sign In</button>
