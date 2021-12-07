@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
 import Dashboard from '../Dashboard/Dashboard'
-import GameTable from '../GameTable/GameTable'
+import ScheduleManagement from '../ScheduleManagement/ScheduleManagement'
 import GameTime from '../GameTime/GameTime';
 
 function Admin(props) {
@@ -42,7 +42,7 @@ function Admin(props) {
             <Header />
            { openDashboard && <Dashboard/>}
            {openProfile &&  < GameTime  handleChange={handleChange} />}
-            { openGameTime &&<GameTable handleChange={handleChange}/>}
+            { openGameTime &&<ScheduleManagement handleChange={handleChange}/>}
         </div>
     )
 }

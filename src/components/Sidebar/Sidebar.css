@@ -16,6 +16,7 @@
     transition: 0.5s;
     width: 70px;
     overflow: hidden;
+    z-index: 1000;
 }
 
 .navigation.naactive{
@@ -39,6 +40,7 @@
     border-top-left-radius: 20px;
     border-top-left-radius: 20px;
     text-align: center;
+    color: white;
 }
 
 .navigation ul li div{
@@ -46,13 +48,13 @@
     display:block ;
     width: 100%;
     display: flex;
-    /* color: #fff; */
+    color: #fff;
 
  
 }
 /* for active button */
 .navigation ul li.active  {
-background: #fff;
+background-color: blue;
 
 
  

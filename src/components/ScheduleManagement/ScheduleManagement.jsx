@@ -30,7 +30,7 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
 import MobileTimePicker from "@mui/lab/MobileTimePicker";
 import CancelIcon from '@mui/icons-material/Cancel';
-import './GameTable.css'
+import './ScheduleManagement.css'
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -49,7 +49,7 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export default function GameTable() {
+export default function ScheduleManagement() {
   const classes = useStyles();
  
 
