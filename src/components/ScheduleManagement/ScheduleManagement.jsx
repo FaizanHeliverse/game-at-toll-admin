@@ -162,7 +162,7 @@ const Popup = ()=>{
   return (
       <div style={{width:"80%",margin:"auto"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <h2>Game Management</h2>
+          <h2>Schedule Management</h2>
           <div  title="Add Game" onClick={()=>[setOpen(!open)]}><AddCircleOutlineIcon sx={{fontSize:35,cursor:"pointer"}}/></div>
           
           </div>

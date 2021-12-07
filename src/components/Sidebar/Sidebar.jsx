@@ -57,22 +57,22 @@ React.useEffect(()=>{
                    props.handleChange("gameTime")
                   }}>
               <div>
-                  <span className="icon"><ion-icon name="person-outline"></ion-icon></span>
-                  <span className="title">User Management</span>
+                  <span className="icon"><ion-icon name="game-controller-outline"></ion-icon></span>
+                  <span className="title">Game Management</span>
                   </div>
               </li>
               <li  ref={one} className="list" onClick={()=>{
                    props.handleChange("addgame")
                   }}>
               <div>
-                  <span className="icon"><ion-icon name="person-add-outline"></ion-icon></span>
-                  <span className="title">Scheduel Management </span>
+                  <span className="icon"><ion-icon name="time-outline"></ion-icon></span>
+                  <span className="title">Schedule Management </span>
                   </div>
               </li>
               <li ref={one} className="list">
                     <div>
-                  <span className="icon"><ion-icon name="time-outline"></ion-icon></span>
-                  <span className="title">Game Management</span>
+                  <span className="icon"><ion-icon name="people-outline"></ion-icon></span>
+                  <span className="title">User Management</span>
                   </div>
               </li>
               <li ref={one} className="list" onClick={()=>{
