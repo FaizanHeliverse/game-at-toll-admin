@@ -1,0 +1,9 @@
+
+
+.del-icon {
+    /* visibility: inherit; */
+    font-size: 20px;
+    
+    color: red;
+    cursor: pointer;
+}

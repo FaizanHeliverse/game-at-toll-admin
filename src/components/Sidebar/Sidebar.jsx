@@ -50,7 +50,7 @@ React.useEffect(()=>{
                    props.handleChange("dashboard")
                   }}>
                   <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
-                  <span className="title">Home</span>
+                  <span className="title">Dashboard</span>
                   </div>
               </li>
               <li ref={one} className="list " onClick={()=>{
@@ -58,7 +58,7 @@ React.useEffect(()=>{
                   }}>
               <div>
                   <span className="icon"><ion-icon name="person-outline"></ion-icon></span>
-                  <span className="title">Add Time</span>
+                  <span className="title">User Management</span>
                   </div>
               </li>
               <li  ref={one} className="list" onClick={()=>{
@@ -66,13 +66,13 @@ React.useEffect(()=>{
                   }}>
               <div>
                   <span className="icon"><ion-icon name="person-add-outline"></ion-icon></span>
-                  <span className="title">Add Game</span>
+                  <span className="title">Scheduel Management </span>
                   </div>
               </li>
               <li ref={one} className="list">
                     <div>
                   <span className="icon"><ion-icon name="time-outline"></ion-icon></span>
-                  <span className="title">Add Time</span>
+                  <span className="title">Game Management</span>
                   </div>
               </li>
               <li ref={one} className="list" onClick={()=>{
@@ -80,7 +80,7 @@ React.useEffect(()=>{
                   }}>
                     <div>
                   <span className="icon"><ion-icon name="time-outline"></ion-icon></span>
-                  <span className="title">Block Member</span>
+                  <span className="title">Transaction Management</span>
                   </div>
               </li>
               <li ref={one}className="list" onClick={()=>{

@@ -46,7 +46,7 @@ console.log(today)
             
                   </div>
                   <div className="graph">
-                      <h2>Last 7 Days Matches</h2>
+                      <h2>Last 7 Days Matches`  </h2>
                   <Graphs/>
                   </div>
                  

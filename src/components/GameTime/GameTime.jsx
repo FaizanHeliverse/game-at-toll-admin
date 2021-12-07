@@ -16,6 +16,7 @@ import Stack from "@mui/material/Stack";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
 import MobileTimePicker from "@mui/lab/MobileTimePicker";
+import UserTable from '../Table/UserTable'
 
 
 export default function GameTime(props) {
@@ -40,14 +41,13 @@ export default function GameTime(props) {
   };
 
   return (
-    <div>
-      <Dialog open={props.profile} onClose={handleClose}>
+    <div style={{width:"80%",margin:"auto"}}>
+      <h1>ADD GAME</h1>
+      <UserTable/>
+      {/* <Dialog open={props.profile} onClose={handleClose}>
         <DialogTitle>Game A Toll</DialogTitle>
         <DialogContent sx={{ width: 420 }}>
-          {/* <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </DialogContentText> */}
+   
           <Box sx={{ minWidth: 120, marginBottom: 2 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label" sx={{ width: "100ch" }}>
@@ -76,19 +76,7 @@ export default function GameTime(props) {
                 }}
                 renderInput={(params) => <TextField {...params} />}
               />
-              {/* <DesktopTimePicker
-            label="For desktop"
-            value={value}
-            onChange={(newValue) => {
-              setValue(newValue);
-            }}
-            renderInput={(params) => <TextField {...params} />}
-          /> */}
-              {/* <TimePicker
-            value={value}
-            onChange={setValue}
-            renderInput={(params) => <TextField {...params} />}
-          />*/}
+
             </Stack>
           </LocalizationProvider>
         </DialogContent>
@@ -96,7 +84,7 @@ export default function GameTime(props) {
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleClose}>Submit</Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </div>
   );
 }
