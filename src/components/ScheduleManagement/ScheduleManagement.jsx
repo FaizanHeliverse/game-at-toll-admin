@@ -54,7 +54,7 @@ export default function ScheduleManagement() {
  
 
   const [open, setOpen] = React.useState(false);
-  const [imageName,setImageName]=React.useState("")
+
   const [currimageName,setCurrImageName]=React.useState("")
 
   React.useEffect(()=>{
@@ -64,6 +64,7 @@ export default function ScheduleManagement() {
 const Popup = ()=>{
   
     console.log("click")
+    console.log(open);
    
    
     const [game, setGame] = React.useState("");
@@ -82,10 +83,21 @@ const Popup = ()=>{
         setOpen(false);
        
       };
+
+      
+
+
+
+
+
+
+
+
     return (
         <>
+        
  <Dialog open={open} onClose={handleClose}>
-     <div style={{position:"absolute",right:30,top:20}}><CancelIcon className="icon"/></div>
+     {/* <div style={{position:"absolute",right:30,top:20}}  ><CancelIcon onClick={setOpen(false)} className="icon"/></div> */}
         <DialogTitle>Game A Toll</DialogTitle>
         <DialogContent sx={{ width: 420 }}>
      <div classsName="time">
@@ -138,13 +150,7 @@ const Popup = ()=>{
             </Stack>
           </LocalizationProvider>
           </div>
-          {/* <div className="file_upload"> 
-          <input type="file" id="actual-btn" onChange={(e)=>{setImageName(e.target.files[0].name);console.log(e.target.files[0])}} hidden />
-         
-  
-        <label for="actual-btn">Game Image Upload</label>
-        <div style={{margin:10}}>{imageName}</div> */}
-          {/* </div> */}
+    
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
@@ -156,14 +162,18 @@ const Popup = ()=>{
 }
 
 
-
+// React.useEffect(()=>{
+//   console.log("use effect is open ")
+//   {open && <Popup/>}
+// },[open])
 
 
   return (
       <div style={{width:"80%",margin:"auto"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <h2>Schedule Management</h2>
-          <div  title="Add Game" onClick={()=>[setOpen(!open)]}><AddCircleOutlineIcon sx={{fontSize:35,cursor:"pointer"}}/></div>
+          <div  title="Add Game" onClick={()=>{setOpen(true);
+          console.log("add game popup")}}><AddCircleOutlineIcon sx={{fontSize:35,cursor:"pointer"}}/></div>
           
           </div>
     <TableContainer component={Paper}>
@@ -192,7 +202,7 @@ const Popup = ()=>{
         </TableBody>
       </Table>
     </TableContainer>
-{open && <Popup/>}
+    {open && <Popup/>}
     </div>
   );
 }

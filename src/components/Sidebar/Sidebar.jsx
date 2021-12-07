@@ -69,7 +69,9 @@ React.useEffect(()=>{
                   <span className="title">Schedule Management </span>
                   </div>
               </li>
-              <li ref={one} className="list">
+              <li ref={one} className="list" className="list" onClick={()=>{
+                   props.handleChange("userManagement")
+                  }}>
                     <div>
                   <span className="icon"><ion-icon name="people-outline"></ion-icon></span>
                   <span className="title">User Management</span>
