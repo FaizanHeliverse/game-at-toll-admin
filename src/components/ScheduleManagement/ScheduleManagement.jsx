@@ -101,10 +101,15 @@ const Popup = ()=>{
       
 
     const handleSubmit = async () => {
+      if(inputState.startTime >= inputState.endTime) {
+        setSnackbar({open:false,message:""})
+        setSnackbar({open:true,message:"Timings should be correct"})
+        return;
+      }
       const response = await fetchData('/updateSchedule',{method:'POST',body:JSON.stringify({
         gameId: inputState.gameId,
-        startTime: inputState.startTime,
-        endTime: inputState.endTime,
+        startTime: inputState.startTime + ":00",
+        endTime: inputState.endTime + ":00",
         commission: inputState.commission,
         day: inputState.day
       })});
@@ -269,6 +274,7 @@ const Popup = ()=>{
             <TableCell align="center">Game</TableCell>
             <TableCell align="center">Start Time</TableCell>
             <TableCell align="center">End Time</TableCell>
+            <TableCell align="center">Commission</TableCell>
             <TableCell align="center">Delete</TableCell>
           </TableRow>
         </TableHead>
@@ -281,6 +287,7 @@ const Popup = ()=>{
               <TableCell align="center">{row.gameName}</TableCell>
               <TableCell align="center">{row.startTime}</TableCell>
               <TableCell align="center">{row.endTime}</TableCell>
+              <TableCell align="center">{row.commission}</TableCell>
               <TableCell onClick={()=>{setOpenConfirmPopup({status:true,day:row.day,startTime:row.startTime,endTime:row.endTime})}} align="center"><ion-icon class="del-icon" name="trash-outline"></ion-icon></TableCell>
             </TableRow>
           ))}
