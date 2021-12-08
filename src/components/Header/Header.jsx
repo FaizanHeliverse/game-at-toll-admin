@@ -5,10 +5,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import './Header.css'
+import { roundToNearestMinutes } from 'date-fns';
+import { Router } from '@mui/icons-material';
+import { useHistory } from 'react-router';
+
 function Header() {
     const [age, setAge] = React.useState('');
   const [open, setOpen] = React.useState(false);
-
+  const router = useHistory();
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -25,7 +29,7 @@ function Header() {
         <div className="header_container">
             <div className="header">
             <div className="left">
-            <ion-icon style={{fontSize:"44px",marginRight:15}} name="notifications-outline"></ion-icon>
+            <div onClick={()=>router.push('/admin')}><ion-icon style={{cursor:"pointer",fontSize:"40px",marginRight:15}} name="play-outline"></ion-icon></div>
   
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-controlled-open-select-label">user</InputLabel>
@@ -40,7 +44,7 @@ function Header() {
           onChange={handleChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>Admin</em>
           </MenuItem>
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>

@@ -56,6 +56,11 @@ function Row(props) {
     setGame(event.target.value);
   };
 
+  const formatDate = (d) => {
+    const date = new Date(d)
+    return date.toLocaleDateString()
+  }
+
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -68,15 +73,16 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {row.name}
+        <TableCell align="center" component="th" scope="row">
+          <img style={{height:50}} src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"></img>
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="left">
+        <TableCell align="center">{row.user.username}</TableCell>
+        <TableCell align="center">{row.user.amount}</TableCell>
+        <TableCell align="center">{formatDate(row.user.createdAt)}</TableCell>
+        <TableCell align="center">
         <Box sx={{ minWidth: 120, marginBottom: 2 }}>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label" sx={{ width: "60ch" }}>
+              <InputLabel id="demo-simple-select-label" sx={{ width: "10ch" }}>
                 User Status
               </InputLabel>
               <Select
@@ -86,8 +92,9 @@ function Row(props) {
                 label="Select User Status"
                 onChange={handleChange}
               >
-                <MenuItem value="active">Active</MenuItem>
-                <MenuItem value="blcoked">Blocked</MenuItem>
+                <MenuItem value="active">Confirmed</MenuItem>
+                <MenuItem value="active">Not Confirmed</MenuItem>
+                <MenuItem value="blcoked">Block</MenuItem>
                 
               </Select>
             </FormControl>
@@ -100,28 +107,33 @@ function Row(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History
+                Match History
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                    <TableCell align="center">S.No.</TableCell>
+                    <TableCell align="center">Opponent</TableCell>
+                    <TableCell align="center">Game</TableCell>
+                    <TableCell align="center">Status</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
+                  {row.history.length == 0 && <> <TableRow > 
+                    <TableCell align="center">{}</TableCell>
+                    <TableCell align="right">No History</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
+                    </TableRow> </>}
+                  {row.history.map((historyRow,k) => (
+                    <TableRow key={historyRow.opponent}>
+                      <TableCell align="center">{k+1}</TableCell>
+                      <TableCell align="center" component="th" scope="row">
+                        {historyRow.opponent}
                       </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
+                      <TableCell align="center">{historyRow.gameName}</TableCell>
+                      <TableCell align="center">{historyRow.status ? "WON":"LOSE"}</TableCell>
+                      
                     </TableRow>
                   ))}
                 </TableBody>
@@ -152,34 +164,36 @@ Row.propTypes = {
   }).isRequired,
 };
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-  createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-  createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-  createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-];
 
-export default function UserManagementTable() {
+export default function UserManagementTable({data}) {
+
+  const [rows,setRows] = React.useState([]);
+  React.useEffect(()=>{
+    setRows(data);
+  },[data])
+
   return (
+    <>
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>User Image</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">credit</TableCell>
-            <TableCell align="center">status</TableCell>
-            {/* <TableCell align="right">Protein</TableCell> */}
+            <TableCell align="center">Profile Image</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">credit</TableCell>
+            <TableCell align="center">Date of Joining</TableCell>
+            <TableCell align="center">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row key={row.user._id} row={row} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    <div style={{marginBottom:100}}></div>
+    </>
   );
 }
