@@ -181,7 +181,7 @@ export default function UserManagementTable({data}) {
             <TableCell />
             <TableCell align="center">Profile Image</TableCell>
             <TableCell align="center">Name</TableCell>
-            <TableCell align="center">credit</TableCell>
+            <TableCell align="center">Credit</TableCell>
             <TableCell align="center">Date of Joining</TableCell>
             <TableCell align="center">Status</TableCell>
           </TableRow>
