@@ -81,7 +81,7 @@ React.useEffect(()=>{
                    props.handleChange("blockMember")
                   }}>
                     <div>
-                  <span className="icon"><ion-icon name="time-outline"></ion-icon></span>
+                  <span className="icon"><ion-icon name="wallet-outline"></ion-icon></span>
                   <span className="title">Transaction Management</span>
                   </div>
               </li>
@@ -89,8 +89,8 @@ React.useEffect(()=>{
                    props.handleChange("history")
                   }}>
                     <div>
-                  <span className="icon"><ion-icon name="game-controller-outline"></ion-icon></span>
-                  <span className="title">History</span>
+                  <span className="icon"><ion-icon name="build-outline"></ion-icon></span>
+                  <span className="title">UI Manager</span>
                   </div>
               </li>
               <li ref={one} className="list"onClick={()=>{
