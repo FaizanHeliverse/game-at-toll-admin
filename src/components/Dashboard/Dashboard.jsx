@@ -1,6 +1,6 @@
     import React from 'react';
     import './Dashboard.css';
-    import UserTable from '../Table/UserTable';
+    import GameTable from '../GameTable/GameTable';
     import Graphs from '../Graphs/Graphs'
 
     function Dashboard() {
@@ -42,7 +42,7 @@ console.log(today)
 
            <div className="today_match_user_table">
                <h2>Today Active Match User</h2>
-               <UserTable/>
+               <GameTable data={[]}/>
             
                   </div>
                   <div className="graph">

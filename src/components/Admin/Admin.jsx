@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
 import Dashboard from '../Dashboard/Dashboard'
 import ScheduleManagement from '../ScheduleManagement/ScheduleManagement'
-import GmaeManagement from '../GmaeManagement/GmaeManagement';
+import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
 import { fabClasses } from '@mui/material';
 
@@ -54,7 +54,7 @@ function Admin(props) {
             <Sidebar handleChange={handleChange}/>
             <Header />
            { openDashboard && <Dashboard/>}
-           {openSchedule &&  < GmaeManagement  handleChange={handleChange} />}
+           {openSchedule &&  < GameManagement  handleChange={handleChange} />}
             { openGameManagement &&<ScheduleManagement handleChange={handleChange}/>}
             { openuserManagement &&<UserManagement handleChange={handleChange}/>}
 
