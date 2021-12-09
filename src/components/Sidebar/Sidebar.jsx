@@ -78,7 +78,7 @@ React.useEffect(()=>{
                   </div>
               </li>
               <li ref={one} className="list" onClick={()=>{
-                   props.handleChange("blockMember")
+                   props.handleChange("transactionManagement")
                   }}>
                     <div>
                   <span className="icon"><ion-icon name="wallet-outline"></ion-icon></span>
@@ -86,7 +86,7 @@ React.useEffect(()=>{
                   </div>
               </li>
               <li ref={one}className="list" onClick={()=>{
-                   props.handleChange("history")
+                   props.handleChange("uiManager")
                   }}>
                     <div>
                   <span className="icon"><ion-icon name="build-outline"></ion-icon></span>

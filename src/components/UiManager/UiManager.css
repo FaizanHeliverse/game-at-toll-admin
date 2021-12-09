@@ -1,0 +1,72 @@
+.ui_container{
+    width: 80%;
+    margin: auto;
+}
+/* .curent_banner::before{
+    background-image: url("../../assests/images/game_a_toll.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 400px;
+    z-index: 1000;
+} */
+.curent_banner{
+   
+ 
+    color: white;
+    border: 2px solid red;
+  width: 100%;
+  height: auto;
+
+    background-color: black;
+ 
+}
+.curent_banner div{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.banner_text{
+    /* position: absolute; */
+    font-size: 6ch;
+    width: 40%;
+    margin-left: 20px;
+}
+.banner_image{
+
+    width: 50%;
+    min-width: 30%;
+}
+.banner_image img{
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.pre_banner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 80%;
+    margin: auto;
+}
+
+.pre_banner_text{
+    
+    font-size: 0.8ch;
+    width: 40%;
+    min-width: 20%;
+    margin-left: 30px;
+}
+
+.pre_banner_image img{
+    /* width:50%; */
+    /* min-width: none; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: fit-content;
+    /* background-size: 100% 100%; */
+}
