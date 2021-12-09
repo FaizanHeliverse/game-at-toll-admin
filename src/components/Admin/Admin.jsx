@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import ScheduleManagement from '../ScheduleManagement/ScheduleManagement'
 import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
+import UiManager from "../UiManager/UiManager"
 import { fabClasses } from '@mui/material';
 
 function Admin(props) {
@@ -13,6 +14,7 @@ function Admin(props) {
     const [openSchedule,setOpenSchedule]=React.useState(false);
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
+    const [openUimanager, setUimanager]=React.useState(false);
  let handleChange=(data,open)=>{
      console.log(data);
     setType(data);
@@ -21,6 +23,7 @@ function Admin(props) {
         setOpenSchedule(false);
         setOpenGameManagement(false)
         setUserManagement(false)
+        setUimanager(false)
 
     }
     else if(data=="gameTime"){
@@ -28,11 +31,13 @@ function Admin(props) {
         setOpenSchedule(true);
         setOpenGameManagement(false);
         setUserManagement(false)
+        setUimanager(false)
     }
     else if(data=="addgame"){
         setOpenDashboard(false);
         setOpenSchedule(false);
         setUserManagement(false)
+        setUimanager(false)
         setOpenGameManagement(true);
     }
     else if(data=="userManagement")
@@ -40,7 +45,15 @@ function Admin(props) {
         setOpenDashboard(false);
         setOpenSchedule(false);
         setOpenGameManagement(false);
+        setUimanager(false)
         setUserManagement(true)
+    }
+    else if(data=="ui_manager"){
+        setOpenDashboard(false);
+        setOpenSchedule(false);
+        setOpenGameManagement(false);
+        setUserManagement(false)
+        setUimanager(true)
     }
  }
 
@@ -57,6 +70,7 @@ function Admin(props) {
            {openSchedule &&  < GameManagement  handleChange={handleChange} />}
             { openGameManagement &&<ScheduleManagement handleChange={handleChange}/>}
             { openuserManagement &&<UserManagement handleChange={handleChange}/>}
+            { openUimanager&&<UiManager handleChange={handleChange}/>}
 
         </div>
     )

@@ -86,7 +86,7 @@ React.useEffect(()=>{
                   </div>
               </li>
               <li ref={one}className="list" onClick={()=>{
-                   props.handleChange("history")
+                   props.handleChange("ui_manager")
                   }}>
                     <div>
                   <span className="icon"><ion-icon name="build-outline"></ion-icon></span>
