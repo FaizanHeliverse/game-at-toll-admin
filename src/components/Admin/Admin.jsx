@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
 import Dashboard from '../Dashboard/Dashboard'
@@ -6,6 +6,8 @@ import ScheduleManagement from '../ScheduleManagement/ScheduleManagement'
 import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
 import { fabClasses } from '@mui/material';
+import {fetchData} from '../../middleware/RequestHandler'
+import { useHistory } from 'react-router';
 
 function Admin(props) {
     const [type,setType]=React.useState("dashboard")
@@ -13,6 +15,13 @@ function Admin(props) {
     const [openSchedule,setOpenSchedule]=React.useState(false);
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
+    const router = useHistory();
+    useEffect(async()=>{
+        const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
+        
+        if(response.message != "Authorized")
+            router.push('/signin')
+    },[])
  let handleChange=(data,open)=>{
      console.log(data);
     setType(data);
