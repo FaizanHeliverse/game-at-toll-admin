@@ -6,6 +6,7 @@ import ScheduleManagement from '../ScheduleManagement/ScheduleManagement'
 import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
 import UiManager from "../UiManager/UiManager"
+import TransactionManagement from "../TransactionManagement/TransactionManagement"
 import { fabClasses } from '@mui/material';
 
 function Admin(props) {
@@ -15,6 +16,7 @@ function Admin(props) {
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
     const [openUimanager, setUimanager]=React.useState(false);
+    const [openTransactionManagement,setTransactionMnanagement]=React.useState(false);
  let handleChange=(data,open)=>{
      console.log(data);
     setType(data);
@@ -24,6 +26,7 @@ function Admin(props) {
         setOpenGameManagement(false)
         setUserManagement(false)
         setUimanager(false)
+        setTransactionMnanagement(false)
 
     }
     else if(data=="gameTime"){
@@ -32,6 +35,8 @@ function Admin(props) {
         setOpenGameManagement(false);
         setUserManagement(false)
         setUimanager(false)
+        setTransactionMnanagement(false)
+
     }
     else if(data=="addgame"){
         setOpenDashboard(false);
@@ -39,6 +44,8 @@ function Admin(props) {
         setUserManagement(false)
         setUimanager(false)
         setOpenGameManagement(true);
+        setTransactionMnanagement(false)
+
     }
     else if(data=="userManagement")
     {
@@ -46,14 +53,26 @@ function Admin(props) {
         setOpenSchedule(false);
         setOpenGameManagement(false);
         setUimanager(false)
+        setTransactionMnanagement(false)
+
         setUserManagement(true)
     }
-    else if(data=="ui_manager"){
+    else if(data=="uiManager"){
         setOpenDashboard(false);
         setOpenSchedule(false);
         setOpenGameManagement(false);
         setUserManagement(false)
         setUimanager(true)
+    }
+    else if(data=="transactionManagement")
+    {
+        setOpenDashboard(false);
+        setOpenSchedule(false);
+        setOpenGameManagement(false);
+        setUserManagement(false)
+        setUimanager(false)
+        setTransactionMnanagement(true)
+
     }
  }
 
@@ -71,6 +90,7 @@ function Admin(props) {
             { openGameManagement &&<ScheduleManagement handleChange={handleChange}/>}
             { openuserManagement &&<UserManagement handleChange={handleChange}/>}
             { openUimanager&&<UiManager handleChange={handleChange}/>}
+            {openTransactionManagement && <TransactionManagement handleChange={handleChange}/> }
 
         </div>
     )
