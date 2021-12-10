@@ -32,6 +32,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import './ScheduleManagement.css'
 import { fetchData } from '../../middleware/RequestHandler';
 import ConfirmPopup from '../ConfirmPopup/ConfirmPopup';
+import { CircularProgress } from '@mui/material';
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -48,6 +49,7 @@ export default function ScheduleManagement() {
   const [snackbar,setSnackbar] = React.useState({open:false,message:""})
   const [openConfirmPopup,setOpenConfirmPopup] = React.useState({status:false,day:null,startTime:null,endTime:null});
   const [currimageName,setCurrImageName]=React.useState("")
+  const [fetchState,setFetchState] = React.useState(true);
   const [state, setState] = React.useState({
     Transition: Fade,
   });
@@ -62,6 +64,7 @@ export default function ScheduleManagement() {
 
   React.useEffect(async ()=>{
     const response = await fetchData('/schedules',{method:'GET'})
+    setFetchState(false);
     if(response.isSuccess) {
       setAllSchedules(response.data)
       setOpen(false)
@@ -266,7 +269,8 @@ const Popup = ()=>{
           console.log("add game popup")}}><AddCircleOutlineIcon sx={{fontSize:35,cursor:"pointer"}}/></div>
           
           </div>
-    <TableContainer component={Paper}>
+    { fetchState ? <CircularProgress style={{position:"absolute",top:"49%",left:"49%"}} />
+      : <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -294,7 +298,7 @@ const Popup = ()=>{
         </TableBody>
       </Table>
     </TableContainer>
-    {openConfirmPopup.status && <ConfirmPopup handleClose={()=>setOpenConfirmPopup({status:false,day:null,startTime:null,endTime:null})} confirm={deleteSchedule}/>}
+    }{openConfirmPopup.status && <ConfirmPopup handleClose={()=>setOpenConfirmPopup({status:false,day:null,startTime:null,endTime:null})} confirm={deleteSchedule}/>}
     {open && <Popup/>}
     <Snackbar
         open={snackbar.open}

@@ -1,0 +1,33 @@
+@import "../../styles/globals.css";
+
+
+.viewer{
+    margin-top: 70px;
+    background-color: #2c2c2c;
+    position: relative;
+}
+
+.row{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.col{
+    padding: 0;
+    border-right: 2px solid #54a542;
+}
+
+.video-container video{
+    height: 600px;
+    width: 100%;
+}
+
+
+
+
+/* .viewer:hover{
+    background-color: red;
+} */

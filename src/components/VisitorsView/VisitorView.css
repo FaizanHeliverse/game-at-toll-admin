@@ -1,0 +1,57 @@
+.alert_center {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    line-height: 100vh
+}
+
+.viewer_view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+.visitor_viewer {
+    background-color: #2c2c2c;
+    position: relative;
+    flex:1;
+}
+
+.viewer_camera_one .viewer_camera_two {
+    position: absolute;
+    bottom: 0px;
+}
+
+.viewer_camera_two {
+    right: 0px;
+}
+
+.viewer_camera_one {
+    left: 0px;
+}
+
+
+.viewer_camera_one video {
+    height: 200px;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    width: 300px;
+}
+.viewer_camera_two video {
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.viewer_screen video {
+    /* height: 300px; */
+    width: 100%;
+}
+
+.viewer_screen {
+    position: relative;
+}
+
