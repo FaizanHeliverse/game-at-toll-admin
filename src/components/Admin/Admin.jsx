@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../Sidebar/Sidebar';
 import Header from '../Header/Header';
 import Dashboard from '../Dashboard/Dashboard'
@@ -8,6 +8,8 @@ import UserManagement from '../UserManagement/UserManagement'
 import UiManager from "../UiManager/UiManager"
 import TransactionManagement from "../TransactionManagement/TransactionManagement"
 import { fabClasses } from '@mui/material';
+import {fetchData} from '../../middleware/RequestHandler'
+import { useHistory } from 'react-router';
 
 function Admin(props) {
     const [type,setType]=React.useState("dashboard")
@@ -15,6 +17,13 @@ function Admin(props) {
     const [openSchedule,setOpenSchedule]=React.useState(false);
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
+    const router = useHistory();
+    useEffect(async()=>{
+        const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
+        
+        if(response.message != "Authorized")
+            router.push('/signin')
+    },[])
     const [openUimanager, setUimanager]=React.useState(false);
     const [openTransactionManagement,setTransactionMnanagement]=React.useState(false);
  let handleChange=(data,open)=>{
