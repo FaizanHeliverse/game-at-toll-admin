@@ -8,6 +8,10 @@ import './Header.css'
 import { roundToNearestMinutes } from 'date-fns';
 import { Router } from '@mui/icons-material';
 import { useHistory } from 'react-router';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+
 
 function Header() {
     const [age, setAge] = React.useState('');
@@ -31,26 +35,14 @@ function Header() {
             <div className="left">
             <div onClick={()=>router.push('/admin')}><ion-icon style={{cursor:"pointer",fontSize:"40px",marginRight:15}} name="play-outline"></ion-icon></div>
   
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-controlled-open-select-label">user</InputLabel>
-        <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value="">
-            <em>Admin</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
+
+    
+       <Avatar sx={{ bgcolor: deepOrange[500],marginRight:4}}>A</Avatar>
+       {/* <seclect>
+         <option>User Profile</option>
+       </seclect> */}
+       {/* <div style={{marginRight:10}}>Admin Name</div> */}
+      <div></div>
     </div>
               
 

@@ -14,7 +14,7 @@ function UserManagement() {
         <div className="user_management_container">  
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <h1>User Management</h1>
-        <input type="text" list="browsers" size="50px" placeholder="Search..."/>
+        {/* <input type="text" list="browsers" size="50px" placeholder="Search..."/>
         <datalist id="browsers">
         <option value="Edge"/>
         <option value="Firefox"/>
@@ -23,7 +23,7 @@ function UserManagement() {
         <option value="Safari"/>
         <option value="saf"/>
         <option value="fas"/>
-        </datalist>
+        </datalist> */}
         </div>
            
             <UserManagementTable data={allUser}/>

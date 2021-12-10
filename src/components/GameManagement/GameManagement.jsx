@@ -46,7 +46,7 @@ export default function GameTime(props) {
   const AddGamePopup = () => {
     const [snackbar,setSnackbar] = React.useState({open:false,message:""})
     const [images, setImages] = React.useState([]);
-    const [gameInputState,setGameInputState] = React.useState({name:"",image:"",entryFee:null})
+    const [gameInputState,setGameInputState] = React.useState({name:"",image:"",entryFee:10})
     const [state, setState] = React.useState({
       Transition: Fade,
     });
@@ -97,7 +97,7 @@ export default function GameTime(props) {
           onChange={(e)=>setGameInputState({...gameInputState,name:e.target.value})}
           fullWidth // this may override your custom width
           />
-          <TextField
+          {/* <TextField
           id="full-width-text-field"
           label="Entry Fee"
           value={gameInputState.entryFee}
@@ -105,7 +105,7 @@ export default function GameTime(props) {
           placeholder="Entry Fee"
           margin="normal"
           fullWidth // this may override your custom width
-          />
+          /> */}
 {/* <div className="file_upload"> 
           <input type="file" id="actual-btn" onChange={(e)=>{setImageName(e.target.files[0].name);console.log(e.target.files[0])}} hidden />
          

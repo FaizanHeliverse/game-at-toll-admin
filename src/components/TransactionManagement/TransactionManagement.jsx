@@ -31,7 +31,7 @@ function TransactionManagement() {
         <div className="transaction_container">
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                    <h1>Transaction Management</h1>
-                   <LocalizationProvider dateAdapter={AdapterDateFns}>
+                   {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Stack spacing={3}>
         <DesktopDatePicker
           label="Date "
@@ -42,7 +42,7 @@ function TransactionManagement() {
         />
 
       </Stack>
-    </LocalizationProvider>
+    </LocalizationProvider> */}
             </div>
          <TransactionManagementTable transactionData={transaction}/>
             
