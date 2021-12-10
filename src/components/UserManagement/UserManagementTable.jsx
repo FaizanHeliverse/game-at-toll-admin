@@ -23,6 +23,7 @@ import Stack from "@mui/material/Stack";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
 import MobileTimePicker from "@mui/lab/MobileTimePicker";
+import { fetchData } from '../../middleware/RequestHandler';
 
 function createData(name, calories, fat, carbs,price) {
   return {
@@ -48,12 +49,14 @@ function createData(name, calories, fat, carbs,price) {
 }
 
 function Row(props) {
-  const { row } = props;
+  const { row} = props
   const [open, setOpen] = React.useState(false);
-  const [game, setGame] = React.useState("active");
+  // const [game, setGame] = React.useState("active")
 
-  const handleChange = (event) => {
-    setGame(event.target.value);
+  const handleChange = async(event) => {
+    console.log(event.target)
+    const response = await fetchData('/updateUserStatus',{method:'POST',body:JSON.stringify({userId:event.target.name,status:event.target.value})})
+    props.updateRow(event.target.value)
   };
 
   const formatDate = (d) => {
@@ -74,7 +77,7 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell align="center" component="th" scope="row">
-          <img style={{height:50}} src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"></img>
+          <img style={{height:50}} src={process.env.REACT_APP_PROXY+"/images/user/"+row.user.image}></img>
         </TableCell>
         <TableCell align="center">{row.user.username}</TableCell>
         <TableCell align="center">{row.user.amount}</TableCell>
@@ -88,13 +91,14 @@ function Row(props) {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={game}
+                value={row.user.status}
                 label="Select User Status"
-                onChange={handleChange}
+                onChange={(e)=>{handleChange(e,)}}
+                name={row.user._id}
               >
-                <MenuItem value="active">Confirmed</MenuItem>
-                <MenuItem value="active">Not Confirmed</MenuItem>
-                <MenuItem value="blcoked">Block</MenuItem>
+                <MenuItem value="confirmed">Confirmed</MenuItem>
+                <MenuItem value="notconfirmed">Not Confirmed</MenuItem>
+                <MenuItem value="blocked">Blocked</MenuItem>
                 
               </Select>
             </FormControl>
@@ -188,7 +192,17 @@ export default function UserManagementTable({data}) {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.user._id} row={row} />
+            <Row key={row.user._id} row={row} updateRow={(status)=>{
+              let newRow = rows;
+              newRow = newRow.map((v)=>{
+                if(v.user._id == row.user._id) {
+                  v.user.status = status;
+                }
+                return v;
+              })
+              console.log(newRow)
+              setRows(newRow);
+            }}/>
           ))}
         </TableBody>
       </Table>
