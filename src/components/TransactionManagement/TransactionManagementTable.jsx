@@ -9,11 +9,11 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const columns = [
-  { id: 'user', label: 'User', minWidth: 170 },
-  { id: 'transaction_id', label: 'Transaction ID', minWidth: 100 },
+  { id: 'email', label: 'Email', minWidth: 170 },
+  { id: 'sessionId', label: 'Transaction ID', minWidth: 100 },
   {
-    id: 'date',
-    label: 'Data',
+    id: 'updatedAt',
+    label: 'Date',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
@@ -26,7 +26,7 @@ const columns = [
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'status',
+    id: 'type',
     label: 'Status',
     minWidth: 170,
     align: 'right',
@@ -34,28 +34,30 @@ const columns = [
   },
 ];
 
-function createData(user, transaction_id, date, amount,status) {
+function createData(email, sessionId, updatedAt, amount,type) {
 //   const density = population / size;
-  return { user, transaction_id, date, amount,status};
+  return { email, sessionId, updatedAt, amount,type};
 }
 
-const rows = [
-  createData('India', 'IN', 1324171354, 3287263,'credit'),
-  createData('China', 'CN', 1403500365, 9596961,'debit'),
-  createData('Italy', 'IT', 60483973, 301340, 'add_wallet'),
-  createData('United States', 'US', 327167434, 9833520,'credit'),
-  createData('Canada', 'CA', 37602103, 9984670,'credit'),
-  createData('Australia', 'AU', 25475400, 7692024,'credit'),
-  createData('Germany', 'DE', 83019200, 357578,'credit'),
-  createData('Ireland', 'IE', 4857000, 70273,'credit'),
-  createData('Mexico', 'MX', 126577691, 1972550,'credit'),
-  createData('Japan', 'JP', 126317000, 377973,'credit'),
+// const rows = [
+//   createData('India', 'IN', 1324171354, 3287263,'credit'),
+//   createData('China', 'CN', 1403500365, 9596961,'debit'),
+//   createData('Italy', 'IT', 60483973, 301340, 'add_wallet'),
+//   createData('United States', 'US', 327167434, 9833520,'credit'),
+//   createData('Canada', 'CA', 37602103, 9984670,'credit'),
+//   createData('Australia', 'AU', 25475400, 7692024,'credit'),
+//   createData('Germany', 'DE', 83019200, 357578,'credit'),
+//   createData('Ireland', 'IE', 4857000, 70273,'credit'),
+//   createData('Mexico', 'MX', 126577691, 1972550,'credit'),
+//   createData('Japan', 'JP', 126317000, 377973,'credit'),
  
-];
+// ];
 
-export default function TransactionManagementTable() {
+
+export default function TransactionManagementTable({transactionData}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rows,setRows]=React.useState([transactionData])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -65,6 +67,10 @@ export default function TransactionManagementTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  React.useEffect(()=>{
+    console.log(transactionData)
+    setRows(transactionData)
+  },[transactionData])
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>

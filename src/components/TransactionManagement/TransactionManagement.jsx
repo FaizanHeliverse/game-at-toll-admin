@@ -7,11 +7,26 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TransactionManagementTable from "./TransactionManagementTable.jsx"
 import './TransactionManagement.css'
 function TransactionManagement() {
+  const [transaction, setTransaction]=React.useState();
     const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
+
+
+
+  React.useEffect(async ()=>{
+    let response = await fetch(process.env.REACT_APP_PROXY+'/transaction',{method:'GET'})
+    response = await response.json();
+    setTransaction(response.transaction)
+    console.log(response.transaction)
+    // if(response.status) {
+     
+    // }
+  },[])
+
+
     return (
         <div className="transaction_container">
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
@@ -29,7 +44,7 @@ function TransactionManagement() {
       </Stack>
     </LocalizationProvider>
             </div>
-         <TransactionManagementTable/>
+         <TransactionManagementTable transactionData={transaction}/>
             
         </div>
     )
