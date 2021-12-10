@@ -71,6 +71,7 @@ function Admin(props) {
         setOpenSchedule(false);
         setOpenGameManagement(false);
         setUserManagement(false)
+        setTransactionMnanagement(false)
         setUimanager(true)
     }
     else if(data=="transactionManagement")

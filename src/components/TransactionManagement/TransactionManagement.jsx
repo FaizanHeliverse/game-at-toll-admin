@@ -7,7 +7,7 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TransactionManagementTable from "./TransactionManagementTable.jsx"
 import './TransactionManagement.css'
 function TransactionManagement() {
-  const [transaction, setTransaction]=React.useState();
+  const [transaction, setTransaction]=React.useState([]);
     const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
 
   const handleChange = (newValue) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import validator from "validator";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -16,6 +16,13 @@ function Signin() {
   const [snackBar,setSnackBar] = React.useState({state:false,message:''})
   const [passwordErr, setPasswordErr]=React.useState(false);
   const router = useHistory();
+
+  useEffect(async()=>{
+    const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
+    
+    if(response.message == "Authorized")
+        router.push('/')
+},[])
 
   const signin = async () => {
     const payload = JSON.stringify({

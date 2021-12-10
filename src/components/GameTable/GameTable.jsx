@@ -61,7 +61,7 @@ export default function GameTable({data,updateData}) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  console.log(rows,"lskdjfl")
+  
   return (
     <>
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
@@ -92,7 +92,7 @@ export default function GameTable({data,updateData}) {
                       if(column.id == "image") {
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            <img style={{width:50,borderRadius:"50%"}} src={value} />
+                            <img style={{width:50,borderRadius:"50%"}} src={process.env.REACT_APP_PROXY+'/images/game/'+value} />
                         </TableCell>
                         )
                       }
