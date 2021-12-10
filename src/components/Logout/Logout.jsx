@@ -4,8 +4,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
-function Logout() {
-    const [open, setOpen]=React.useState(true)
+function Logout(props) {
+    const [open, setOpen]=React.useState(props.openLogout)
     const handleClose = ()=>{
         setOpen(false);
     }
@@ -17,7 +17,7 @@ function Logout() {
     
     return (
         <div>
-           <Dialog open={true} onClose={handleClose}>
+           <Dialog open={open} onClose={handleClose}>
           <DialogTitle>Logout</DialogTitle>
           <DialogContent sx={{ width: 420 }}>
           <div>
