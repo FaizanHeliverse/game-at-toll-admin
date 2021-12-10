@@ -21,7 +21,6 @@
  
 }
 .curent_banner div{
-    width: 80%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -34,7 +33,7 @@
     margin-left: 20px;
 }
 .banner_image{
-
+    overflow: hidden;
     width: 50%;
     min-width: 30%;
 }
