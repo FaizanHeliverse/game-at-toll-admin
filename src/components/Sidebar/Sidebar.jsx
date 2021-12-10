@@ -94,7 +94,7 @@ React.useEffect(()=>{
                   </div>
               </li>
               <li ref={one} className="list"onClick={()=>{
-                   props.handleChange("logout")
+                   props.logout(true)
                   }} >
                   <div>
                   <span className="icon"><ion-icon name="log-out-outline"></ion-icon></span>

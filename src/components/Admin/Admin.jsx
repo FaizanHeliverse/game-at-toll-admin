@@ -19,6 +19,7 @@ function Admin(props) {
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
     const [openLogout,setLogout]=React.useState(false);
+    const [adminLogout,setAdminLogout]=React.useState(false);
     const router = useHistory();
     useEffect(async()=>{
         const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
@@ -92,25 +93,25 @@ function Admin(props) {
         setLogout(false)
 
     }
-    else if(data=="logout"){
-        setOpenDashboard(false);
-        setOpenSchedule(false);
-        setOpenGameManagement(false);
-        setUserManagement(false)
-        setUimanager(false)
-        setTransactionMnanagement(false)
-        setLogout(true)
-    }
+    // else if(data=="logout"){
+    //     setOpenDashboard(false);
+    //     setOpenSchedule(false);
+    //     setOpenGameManagement(false);
+    //     setUserManagement(false)
+    //     setUimanager(false)
+    //     setTransactionMnanagement(false)
+    //     setLogout(true)
+    // }
  }
 
-//  let gameHandleChange=(data)=>{
-//     setOpenProfile(data);
+ let logout=(data)=>{
+    setLogout(data);
 // gameHandleChange={gameHandleChange}
-//  }
+ }
 
     return (
         <div>
-            <Sidebar handleChange={handleChange}/>
+            <Sidebar handleChange={handleChange} logout={logout}/>
             <Header />
             { openDashboard && <Dashboard/>}
             {openSchedule &&  < GameManagement  handleChange={handleChange} />}
@@ -118,7 +119,7 @@ function Admin(props) {
             { openuserManagement &&<UserManagement handleChange={handleChange}/>}
             { openUimanager&&<UiManager handleChange={handleChange}/>}
             {openTransactionManagement && <TransactionManagement handleChange={handleChange}/> }
-            {openLogout&&<Logout handleChange={handleChange}/>}
+            {openLogout&&<Logout openLogout={openLogout}/>}
 
         </div>
     )
