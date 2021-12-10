@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import UserManagementTable from './UserManagementTable'
 import './UserManagement.css'
 import { fetchData } from '../../middleware/RequestHandler'
+import { CircularProgress } from '@mui/material';
 function UserManagement() {
     const [allUser,setAllUser] = useState([]);
-
+    const [fetchState,setFetchState] = useState(true);
     useEffect(async()=>{
         const response = await fetchData('/users',{method:'GET'})
         setAllUser(response.data);
+        setFetchState(false);
     },[])
 
     return (
@@ -26,7 +28,7 @@ function UserManagement() {
         </datalist> */}
         </div>
            
-            <UserManagementTable data={allUser}/>
+            {fetchState ? <CircularProgress style={{position:"absolute",top:"49%",left:"49%"}} /> : <UserManagementTable data={allUser}/>}
         </div>
     )
 }
