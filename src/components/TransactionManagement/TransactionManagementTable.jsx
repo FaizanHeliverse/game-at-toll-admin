@@ -9,27 +9,27 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const columns = [
-  { id: 'email', label: 'Email', minWidth: 170 },
-  { id: 'sessionId', label: 'Transaction ID', minWidth: 100 },
+  { id: 'email',align:'left', label: 'Email', minWidth: 170 },
+  { id: 'sessionId', align:'center',label: 'Transaction ID', minWidth: 100 },
   {
     id: 'updatedAt',
     label: 'Date',
     minWidth: 170,
-    align: 'right',
+    align: 'center',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'amount',
     label: 'Amount',
     minWidth: 170,
-    align: 'right',
+    align: 'center',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'type',
     label: 'Status',
     minWidth: 170,
-    align: 'right',
+    align: 'center',
     format: (value) => value.toFixed(2),
   },
 ];
@@ -99,9 +99,12 @@ export default function TransactionManagementTable({transactionData}) {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
+                          {column.id == "updatedAt" ? new Date(value).toLocaleDateString()
+                          :
+                          (column.format && typeof value === 'number'
                             ? column.format(value)
-                            : value}
+                            : value ?? "N/A")
+                            }
                         </TableCell>
                       );
                     })}

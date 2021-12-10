@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom";
 import { Dialog } from "@mui/material";
 import { fetchData } from "../../middleware/RequestHandler";
@@ -22,7 +23,7 @@ export default function AdminView() {
   const router = useHistory();
 
   useEffect(async()=>{
-    const response = await (await fetch(process.env.REACT_APP_API_KEY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
+    const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
     if(response.message == "Unauthorized") {
       router.push('/')
     }
@@ -109,7 +110,7 @@ export default function AdminView() {
                   className="row"
                   style={{ marginBottom: 20, border: "none" }}
                 >
-                  <img src={match.game.image} />
+                  <img src={process.env.REACT_APP_PROXY+'/images/game/'+match.game.image} />
                 </div>
                 <span
                   className="row"
@@ -137,13 +138,13 @@ export default function AdminView() {
                   </Select>
                 </FormControl>
 
-                <button
+                <Button
                   className="started_btn"
                   style={{ width: "100%", margin: 0, marginTop: 20 }}
                   onClick={finishGame}
                 >
                   Finish Game
-                </button>
+                </Button>
               </Box>
             </div>
           </Dialog>

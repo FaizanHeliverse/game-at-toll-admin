@@ -10,7 +10,7 @@ console.log(today)
         return (
             <div className="dashboard_container">
                 <h1>Dashboard</h1>
-                <div className="match">
+                {/* <div className="match">
                 <h2>Today Match</h2>
                 <h2>{today}</h2>
 
@@ -49,7 +49,8 @@ console.log(today)
                       <h2>Last 7 Days Matches`  </h2>
                   <Graphs/>
                   </div>
-                 
+                  */}
+                  
           
             </div>
         )

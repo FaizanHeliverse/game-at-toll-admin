@@ -17,7 +17,7 @@
 }
 .float-right {
   padding: 10px 30px;
-  width: 100%;
+  /* width: 100%; */
   cursor: pointer;
   text-align: right;
 }
