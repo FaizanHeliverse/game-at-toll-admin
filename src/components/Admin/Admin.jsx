@@ -7,6 +7,7 @@ import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
 import UiManager from "../UiManager/UiManager"
 import TransactionManagement from "../TransactionManagement/TransactionManagement"
+import Logout from "../Logout/Logout"
 import { fabClasses } from '@mui/material';
 import {fetchData} from '../../middleware/RequestHandler'
 import { useHistory } from 'react-router';
@@ -17,6 +18,7 @@ function Admin(props) {
     const [openSchedule,setOpenSchedule]=React.useState(false);
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
+    const [openLogout,setLogout]=React.useState(false);
     const router = useHistory();
     useEffect(async()=>{
         const response = await (await fetch(process.env.REACT_APP_PROXY+'/verifyAdmin',{method:"GET",headers:{'Authorization':localStorage.accessToken}})).json();
@@ -36,6 +38,7 @@ function Admin(props) {
         setUserManagement(false)
         setUimanager(false)
         setTransactionMnanagement(false)
+        setLogout(false)
 
     }
     else if(data=="gameTime"){
@@ -45,6 +48,7 @@ function Admin(props) {
         setUserManagement(false)
         setUimanager(false)
         setTransactionMnanagement(false)
+        setLogout(false)
 
     }
     else if(data=="addgame"){
@@ -54,6 +58,7 @@ function Admin(props) {
         setUimanager(false)
         setOpenGameManagement(true);
         setTransactionMnanagement(false)
+        setLogout(false)
 
     }
     else if(data=="userManagement")
@@ -63,6 +68,7 @@ function Admin(props) {
         setOpenGameManagement(false);
         setUimanager(false)
         setTransactionMnanagement(false)
+        setLogout(false)
 
         setUserManagement(true)
     }
@@ -72,6 +78,7 @@ function Admin(props) {
         setOpenGameManagement(false);
         setUserManagement(false)
         setTransactionMnanagement(false)
+        setLogout(false)
         setUimanager(true)
     }
     else if(data=="transactionManagement")
@@ -82,7 +89,17 @@ function Admin(props) {
         setUserManagement(false)
         setUimanager(false)
         setTransactionMnanagement(true)
+        setLogout(false)
 
+    }
+    else if(data=="logout"){
+        setOpenDashboard(false);
+        setOpenSchedule(false);
+        setOpenGameManagement(false);
+        setUserManagement(false)
+        setUimanager(false)
+        setTransactionMnanagement(false)
+        setLogout(true)
     }
  }
 
@@ -95,12 +112,13 @@ function Admin(props) {
         <div>
             <Sidebar handleChange={handleChange}/>
             <Header />
-           { openDashboard && <Dashboard/>}
-           {openSchedule &&  < GameManagement  handleChange={handleChange} />}
+            { openDashboard && <Dashboard/>}
+            {openSchedule &&  < GameManagement  handleChange={handleChange} />}
             { openGameManagement &&<ScheduleManagement handleChange={handleChange}/>}
             { openuserManagement &&<UserManagement handleChange={handleChange}/>}
             { openUimanager&&<UiManager handleChange={handleChange}/>}
             {openTransactionManagement && <TransactionManagement handleChange={handleChange}/> }
+            {openLogout&&<Logout handleChange={handleChange}/>}
 
         </div>
     )
