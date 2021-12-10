@@ -1,119 +1,93 @@
-import React from 'react'
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import {Chart, ArcElement} from 'chart.js'
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
+import { MDBContainer } from "mdbreact";
+Chart.register(ArcElement);
+// class Graphs extends React.Component {
+  
+//   state = {
+//     dataPie: {
+//       labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+//       datasets: [
+//         {
+//           data: [300, 50, 100, 40, 120],
+//           backgroundColor: [
+//             "#F7464A",
+//             "#46BFBD",
+//             "#FDB45C",
+//             "#949FB1",
+//             "#4D5360",
+//             "#AC64AD"
+//           ],
+//           hoverBackgroundColor: [
+//             "#FF5A5E",
+//             "#5AD3D1",
+//             "#FFC870",
+//             "#A8B3C5",
+//             "#616774",
+//             "#DA92DB"
+//           ]
+//         }
+//       ]
+//     }
+//   }
 
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js'
+//   render() {
+//     return (
+//       <MDBContainer>
+//         <h3 className="mt-5">Pie chart</h3>
+//         <Pie data={this.state.dataPie} options={{ responsive: true }} />
+//       </MDBContainer>
+//     );
+//   }
+// }
+
+// export default Graphs;
 
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
-function Graphs() {
-  // const dataForWon = (canvas) => {
-  //   const ctx = canvas.getContext("2d")
-  //   const gradient = ctx.createLinearGradient(0,0,0,400)
-   
-  //   gradient.addColorStop(0, '#05ff00');
+function Graphs({gameData}) {
+const [gameLabels,setGameLabels]=React.useState([gameData.labels])
+const [gData,setGameData]=React.useState([gameData.data])
  
-  //   gradient.addColorStop(1, 'rgba(0,210,255,0.3)');
-  //     return {
-        
-  //       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  //         datasets: [
-  //           {
-  //             label: "Number Of wins",
-  //             data: [33, 53, 85, 41, 44, 65],
+console.log(gameLabels)
+console.log(gData)
+console.log(gameData)
+console.log(gameData.labels)
 
-  //             fill: true,
-  //             backgroundColor: gradient,
-  //             borderColor: [
-  //              "#05ff00"
-  //             ],
-  //             borderWidth: 1,
-  //           },
-  //           {
-  //                     label: "Second dataset",
-  //                     data: [33, 25, 35, 51, 54, 76],
-  //                     fill: false,
-  //                     borderColor: "#742774",
-  //                     backgroundColor: gradient,
-  //                   }
-  //         ],
-          
-         
-  //     }
-  //   }
-
-
-    const data = {
-   
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        datasets: [
-          {
-            label: "First dataset",
-            data: [33, 53, 85, 41, 44, 65],
-            fill: true,
-           
-            borderColor: "rgba(75,192,192,1)",
-            backgroundColor:"red"
-
-          },
-          {
-            label: "Second dataset",
-            data: [33, 25, 35, 51, 54, 76],
-            fill: true,
-            borderColor: "#742774",
-            backgroundColor: "green",
-          }
+  let data={
+    labels: ['pupg','call of duty'],
+    datasets: [
+      {
+        data:['5','3'],
+        backgroundColor: [
+          "#F7464A",
+          "#46BFBD",
+          "#FDB45C",
+          "#949FB1",
+          "#4D5360",
+          "#AC64AD"
+        ],
+        hoverBackgroundColor: [
+          "#FF5A5E",
+          "#5AD3D1",
+          "#FFC870",
+          "#A8B3C5",
+          "#616774",
+          "#DA92DB"
         ]
-      };
-      
-    return (
-      <>
-     
-<Line
-width="10px"
-height="10px"
-
-options={{
-  responsive: true,
-  radius: 3,
-  hoverRadius: 7,
-  tension: 0.5,
-  scales: {
-    x: {
-        grid:{
-         display:false
-             }
-       },
-    y: 
-       {
-     grid:{
-      display:false
-          }
-       }
-           }
-}}
-data={data} />
-
-            
-     </> 
-    )
+      }
+    ]
+  }
+  // console.log(data);
+  return (
+    
+        <MDBContainer>
+       <h3 className="mt-5">Pie chart</h3>
+       <Pie height={200} data={data} options={{ responsive: true }} />
+       </MDBContainer>
+  
+  )
 }
 
 export default Graphs
