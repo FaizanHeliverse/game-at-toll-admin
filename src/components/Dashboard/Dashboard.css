@@ -50,6 +50,16 @@ cursor: pointer;
 }
 
 .graph  {
-    height: 308px;
-    width: 426px;
+    justify-content: space-between !important;
+    width: 100%;
+    align-items: center;
+    display: flex !important;
+}
+
+.graph div{
+    width: 50%;
+}
+
+.container{
+    height: 300xp;
 }
