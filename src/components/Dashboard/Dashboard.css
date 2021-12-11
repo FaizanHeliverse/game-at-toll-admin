@@ -15,7 +15,7 @@
 .sub_box{
     width: 300px;
     height: 120px;
-    background: rgb(13,213,103);
+    background: rgb(129, 202, 19) !important;
     background: linear-gradient(90deg, rgba(13,213,103,1) 20%, rgba(118,219,189,0.7679446778711485) 52%, rgba(0,212,255,1) 100%);
     display: flex;
     justify-content: space-around;
@@ -31,6 +31,7 @@
     margin-right: 20px;
 }
 
+
 .sub_box div{
     font-size: 20px;
     letter-spacing: 2px;
@@ -38,7 +39,7 @@
 
 .sub_box:hover{
     background: rgb(16,165,222);
-background: linear-gradient(90deg, rgba(16,165,222,1) 18%, rgba(191,219,118,0.7287289915966386) 65%, rgba(136,0,255,1) 100%);
+background: linear-gradient(90deg, rgba(16,165,222,1) 18%, rgba(191,219,118,0.7287289915966386) 65%, rgb(255, 255, 255) 100%);
 cursor: pointer;
 }
 
@@ -54,6 +55,7 @@ cursor: pointer;
     width: 100%;
     align-items: center;
     display: flex !important;
+    text-align: center;
 }
 
 .graph div{

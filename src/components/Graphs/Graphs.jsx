@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import {Chart, ArcElement} from 'chart.js'
 
@@ -49,20 +49,26 @@ Chart.register(ArcElement);
 function Graphs({gameData}) {
 const [gameLabels,setGameLabels]=React.useState([gameData.labels])
 const [gData,setGameData]=React.useState([gameData.data])
- 
+
+useEffect(()=>{
+  console.log(gameLabels,gData)
+  setGameData(gameData.data);
+  setGameLabels(gameData.labels)
+},[gameData])
+
 console.log(gameLabels)
 console.log(gData)
 console.log(gameData)
 console.log(gameData.labels)
 
   let data={
-    labels: ['pupg','call of duty'],
+    labels: gameLabels,
     datasets: [
       {
-        data:['5','3'],
+        data:gData,
         backgroundColor: [
-          "#F7464A",
-          "#46BFBD",
+          "tomato",
+          "#4d5bf9",
           "#FDB45C",
           "#949FB1",
           "#4D5360",
@@ -70,7 +76,7 @@ console.log(gameData.labels)
         ],
         hoverBackgroundColor: [
           "#FF5A5E",
-          "#5AD3D1",
+          "#4d5bf9",
           "#FFC870",
           "#A8B3C5",
           "#616774",
@@ -83,7 +89,7 @@ console.log(gameData.labels)
   return (
     
         <MDBContainer>
-       <h3 className="mt-5">Pie chart</h3>
+       <h2 className="mt-5">Mostly Played Game</h2>
        <Pie height={200} data={data} options={{ responsive: true }} />
        </MDBContainer>
   

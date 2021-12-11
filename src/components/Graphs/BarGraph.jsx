@@ -188,7 +188,7 @@ class BarGraph extends React.Component {
   render() {
     return (
       <MDBContainer>
-        <h3 className='mt-5'>Bar chart</h3>
+        <h2 className='mt-5'>User Registered</h2>
         <Scatter
           data={this.state.dataScatter}
           options={this.state.optionsScatter}
