@@ -4,9 +4,16 @@ import GameTable from "../GameTable/GameTable";
 import Graphs from "../Graphs/Graphs";
 import BarGraph from "../Graphs/BarGraph"
 import { fetchData } from "../../middleware/RequestHandler";
+import LineGraph from "../Graphs/LineGraph";
 
 function Dashboard() {
   const [gameMostPlayed, setGameMostPlayed] = React.useState({labels:[],data:[]});
+  const [eachMatchProfit,setEachMatcProfit]=React.useState({
+    dates:[],data:[]
+  });
+  const [user,setuser]=React.useState({
+    date:[],count:[]
+  });
   const [stats,setStats] = React.useState({profit:0,creditAmount:0,debitAmount:0,profit:0});
 
   React.useEffect(async () => {
@@ -19,6 +26,12 @@ function Dashboard() {
     const response = await fetchData('/getMetaTransaction',{method:'GET'});
     console.log(response);
     setStats(response)
+    const prresponse = await fetchData('/profit',{method:'GET'});
+    console.log(prresponse);
+    setEachMatcProfit(prresponse);
+    const userData = await fetchData('/user',{method:'GET'});
+    console.log(userData);
+    setuser(userData)
   },[])
 
   let today = new Date().toISOString().slice(0, 10);
@@ -52,10 +65,12 @@ function Dashboard() {
       </div>
       <div className="graph">
           
-        {/* <div style={{width:"100%"}}><BarGraph /></div> */}
-        <div style={{width:"50%"}}><Graphs gameData={gameMostPlayed} /></div>
+        <div ><LineGraph eachMatchProfit={eachMatchProfit}/></div>
+        <div ><Graphs gameData={gameMostPlayed} /></div>
         
       </div>
+      {/* <div ><BarGraph userData={user}/></div> */}
+
 
     
     </div>

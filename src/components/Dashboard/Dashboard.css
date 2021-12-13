@@ -51,16 +51,17 @@ cursor: pointer;
 }
 
 .graph  {
-    justify-content: space-between !important;
+    justify-content: space-around !important;
     width: 100%;
     align-items: center;
     display: flex !important;
     text-align: center;
+    height: 80%;
 }
 
-.graph div{
+/* .graph div{
     width: 50%;
-}
+} */
 
 .container{
     height: 300xp;
