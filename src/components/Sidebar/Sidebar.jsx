@@ -12,7 +12,7 @@ function Sidebar(props) {
      // add active class in selected list item
      const one = useRef(null);
      const two = useRef(null);
-     const three = useRef(null);
+     const three = useRef(null);  
      const four = useRef(null);
      const five = useRef(null);
      const six = useRef(null);
@@ -51,6 +51,14 @@ React.useEffect(()=>{
                   }}>
                   <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
                   <span className="title">Dashboard</span>
+                  </div>
+              </li>
+              <li ref={one} className="list">
+                  <div onClick={()=>{
+                   props.handleChange("liveGame")
+                  }}>
+                  <span className="icon"><ion-icon  name="play-outline"></ion-icon></span>
+                  <span className="title">Live Game</span>
                   </div>
               </li>
               <li ref={one} className="list " onClick={()=>{

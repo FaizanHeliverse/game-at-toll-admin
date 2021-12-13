@@ -32,11 +32,7 @@ function Header() {
     return (
         <div className="header_container">
             <div className="header">
-            <div className="left">
-            <div onClick={()=>router.push('/admin')}><ion-icon style={{cursor:"pointer",fontSize:"40px",marginRight:15}} name="play-outline"></ion-icon></div>
-  
-
-    
+            <div className="left">    
        <Avatar sx={{ bgcolor: deepOrange[500],marginRight:4}}>A</Avatar>
        {/* <seclect>
          <option>User Profile</option>

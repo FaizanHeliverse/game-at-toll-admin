@@ -64,7 +64,7 @@ export default function AdminView() {
   };
 
   return (
-    <div id="">
+    <div id="" style={{marginLeft:'75px'}}>
       <VisitorsView
         callback={(match) => {
           console.log("SUHAIL");

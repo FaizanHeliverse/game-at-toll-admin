@@ -17,9 +17,6 @@ function App() {
           <Route exact path="/signin">
             <Signin />
           </Route>
-          <Route exact path="/admin">
-            <AdminView />
-          </Route>
         </Switch>
       </main>
     </>

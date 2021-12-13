@@ -7,6 +7,7 @@ import GameManagement from '../GameManagement/GameManagement';
 import UserManagement from '../UserManagement/UserManagement'
 import UiManager from "../UiManager/UiManager"
 import TransactionManagement from "../TransactionManagement/TransactionManagement"
+import AdminView from '../AdminView/AdminView';
 import Logout from "../Logout/Logout"
 import { fabClasses } from '@mui/material';
 import {fetchData} from '../../middleware/RequestHandler'
@@ -19,6 +20,7 @@ function Admin(props) {
     const [openGameManagement,setOpenGameManagement]=React.useState(false);
     const [openuserManagement, setUserManagement]=React.useState(false);
     const [openLogout,setLogout]=React.useState(false);
+    const [openLiveGame,setOpenLiveGame] = React.useState(false);
     const [adminLogout,setAdminLogout]=React.useState(false);
     const router = useHistory();
     useEffect(async()=>{
@@ -33,6 +35,7 @@ function Admin(props) {
      console.log(data);
     setType(data);
     if(data=="dashboard"){
+        setOpenLiveGame(false);
         setOpenDashboard(true);
         setOpenSchedule(false);
         setOpenGameManagement(false)
@@ -44,6 +47,7 @@ function Admin(props) {
     }
     else if(data=="gameTime"){
         setOpenDashboard(false);
+        setOpenLiveGame(false);
         setOpenSchedule(true);
         setOpenGameManagement(false);
         setUserManagement(false)
@@ -57,6 +61,7 @@ function Admin(props) {
         setOpenSchedule(false);
         setUserManagement(false)
         setUimanager(false)
+        setOpenLiveGame(false);
         setOpenGameManagement(true);
         setTransactionMnanagement(false)
         setLogout(false)
@@ -70,7 +75,7 @@ function Admin(props) {
         setUimanager(false)
         setTransactionMnanagement(false)
         setLogout(false)
-
+        setOpenLiveGame(false);
         setUserManagement(true)
     }
     else if(data=="uiManager"){
@@ -80,6 +85,7 @@ function Admin(props) {
         setUserManagement(false)
         setTransactionMnanagement(false)
         setLogout(false)
+        setOpenLiveGame(false);
         setUimanager(true)
     }
     else if(data=="transactionManagement")
@@ -89,9 +95,20 @@ function Admin(props) {
         setOpenGameManagement(false);
         setUserManagement(false)
         setUimanager(false)
+        setOpenLiveGame(false);
         setTransactionMnanagement(true)
         setLogout(false)
 
+    }
+    else if(data == "liveGame") {
+        setOpenDashboard(false);
+        setOpenSchedule(false);
+        setOpenGameManagement(false);
+        setUserManagement(false)
+        setUimanager(false)
+        setTransactionMnanagement(false)
+        setLogout(false)
+        setOpenLiveGame(true);
     }
     // else if(data=="logout"){
     //     setOpenDashboard(false);
@@ -120,6 +137,7 @@ function Admin(props) {
             { openUimanager&&<UiManager handleChange={handleChange}/>}
             {openTransactionManagement && <TransactionManagement handleChange={handleChange}/> }
             {openLogout&&<Logout openLogout={openLogout}/>}
+            {openLiveGame && <AdminView />}
 
         </div>
     )
