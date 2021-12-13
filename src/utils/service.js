@@ -202,6 +202,7 @@ async function  startMaster(localStream,channelName) {
 
   console.log("[MASTER] Starting master connection");
   master.signalingClient.open();
+  return master.signalingClient;
 }
 
 export { startMaster };
