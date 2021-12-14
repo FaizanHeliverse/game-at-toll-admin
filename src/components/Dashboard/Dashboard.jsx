@@ -47,11 +47,11 @@ function Dashboard() {
       <div className="box">
         <div className="sub_box">
           <div>Profit</div>
-          <h2>{stats.profit}</h2>
+          <h2>{Math.ceil(stats.profit)}</h2>
         </div>
         <div className="sub_box">
           <div style={{textAlign:'center'}}>Amount Credited</div>
-          <h2>{stats.creditAmount}</h2>
+          <h2>{Math.ceil(stats.creditAmount)}</h2>
         </div>
 
         <div className="sub_box">
@@ -71,7 +71,7 @@ function Dashboard() {
       </div>
       {/* <div ><BarGraph userData={user}/></div> */}
 
-
+      <div style={{marginBottom:100}}></div>
     
     </div>
   );

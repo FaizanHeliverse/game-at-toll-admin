@@ -36,7 +36,8 @@ function LineGraph(props) {
   console.log(props.eachMatchProfit)
 
   let dataLine = {
-    labels: props.eachMatchProfit.dates,
+    // labels: props.eachMatchProfit.dates,
+    labels: props.eachMatchProfit.dates.map((v)=>''),
     datasets: [
       {
         label: "Every Day Profit",
@@ -64,7 +65,7 @@ function LineGraph(props) {
   return (
     <div>
       <MDBContainer>
-        <h3 className="mt-5">Profit chart</h3>
+        <h2 className="mt-5">Profit chart</h2>
         <Line height={400} width={400} data={dataLine } options={{
           fill:true,
           scales: {

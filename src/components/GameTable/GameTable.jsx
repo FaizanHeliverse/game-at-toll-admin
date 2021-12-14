@@ -78,7 +78,7 @@ export default function GameTable({data,updateData}) {
                   {column.label}
                 </TableCell>
               ))}
-              <TableCell align="right">Delete game</TableCell>
+              {/* <TableCell align="right">Delete game</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -104,7 +104,7 @@ export default function GameTable({data,updateData}) {
                         </TableCell>
                       );
                     })}
-                    <TableCell onClick={()=>{setOpenConfirmPopup({status:true,gameId:row._id})}} align="right"><ion-icon class="del-icon" name="trash-outline"></ion-icon></TableCell>
+                    {/* <TableCell onClick={()=>{setOpenConfirmPopup({status:true,gameId:row._id})}} align="right"><ion-icon class="del-icon" name="trash-outline"></ion-icon></TableCell> */}
                   </TableRow>
                 );
               })}
