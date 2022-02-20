@@ -102,18 +102,18 @@ function VisitorsView(props) {
     <div className="viewer_view" style={props.style}>
       <div className="visitor_viewer">
         <div className="viewer_screen">
-          <ViewerView channel="game-a-toll-screen-one" batch={activeBatch} />
+          <ViewerView channel="game-a-toll-camera-one" batch={activeBatch} />
         </div>
         <div className="viewer_camera_one">
-          <ViewerView channel="game-a-toll-camera-one" batch={activeBatch} />
+          <ViewerView channel="game-a-toll-screen-one" batch={activeBatch} />
         </div>
       </div>
       <div className="visitor_viewer">
         <div className="viewer_screen">
-          <ViewerView channel="game-a-toll-screen-two" batch={activeBatch} />
+          <ViewerView channel="game-a-toll-camera-two" batch={activeBatch} />
         </div>
         <div className="viewer_camera_two">
-          <ViewerView channel="game-a-toll-camera-two" batch={activeBatch} />
+          <ViewerView channel="game-a-toll-screen-two" batch={activeBatch} />
         </div>
       </div>
       <div style={{position:"absolute",bottom:20,left:"48%",display:'flex'}}>
